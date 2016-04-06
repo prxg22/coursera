@@ -12,11 +12,18 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
-x0 = X( : , 1);
-x1 = X( : , 2);
+jsum = 0;
+h = 0;
 
-% set of h(theta) for each x1
-h = x0 + theta*x1;
+x = X(:,2);
+
+h = theta(1) +  theta(2) * x;
+
+jsum = (h - y).^2;
+
+J = sum(jsum) / (2*m);
+
+
  
     
 
