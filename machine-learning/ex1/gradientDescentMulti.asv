@@ -17,10 +17,7 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
     h = X * theta;
-    delta = h-y;
-    delta = repmat(delta, 1, n) .* X;
-    
-    delta = (sum(delta/m))';
+    delta = (sum(((h - y) .* X) / m))';
     
     theta = theta - alpha * delta;
     
@@ -30,5 +27,7 @@ for iter = 1:num_iters
     J_history(iter) = computeCostMulti(X, y, theta);
     
 end
+
+plot(J_history, 1:num_iters);
 
 end
